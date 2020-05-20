@@ -34,9 +34,6 @@ router.get('/omdb', async function (req, res,)  {
 
 
 });
-/ai/movies/omdb?name=
-/ai/movies/omdb?id=
-/ai/movies?name= 
 
 router.get('/', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
