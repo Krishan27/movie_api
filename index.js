@@ -22,6 +22,7 @@ app.listen(5000, () => console.log('Server started at port : 5000'));
 app.use('/employees', employeeController);
 
 app.use('/api/movies', movieController);
+app.use('/api/wishlist', movieController);
 app.use('/api/auth', authController);
 app.use('/api/ping', healthController);
 

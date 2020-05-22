@@ -6,7 +6,6 @@ mongoose.connect(config.connect_mongoclient,{ useUnifiedTopology: true,useNewUrl
 
     console.log('MongoDB connection succeeded.');
 
-        
     
     else
         console.log('Error in DB connection : ' + JSON.stringify(err, undefined, 2));
