@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 
 const checkAuth = require("../middleware/checkAuth");
 const User = require("../models/user");
+const Wishlist = require("../models/wishlist");
 
 
 router.post("/signup", (req, res, next) => {
@@ -24,21 +25,36 @@ router.post("/signup", (req, res, next) => {
               error: err
             });
           } else {
+            var id = new mongoose.Types.ObjectId()
             const user = new User({
-              _id: new mongoose.Types.ObjectId(),
+              _id:id ,
               email: req.body.email,
               password: hash
             });
             user
               .save()
               .then(result => {
+                const wl = new Wishlist({
+                  _id:id 
+                });
+                wl
+                  .save()
+                  .then(result =>{
+                    res.status(201).json({
+                      message: "User created"
+                    });
+                  })
+                  .catch(err => {
+                    console.log(err);
+                    res.status(500).json({
+                      error: err
+                    });
+                  });
                 console.log(result);
 
 
                // user._id create wishlist
-                res.status(201).json({
-                  message: "User created"
-                });
+   
               })
               .catch(err => {
                 console.log(err);
@@ -80,7 +96,8 @@ router.post("/login", (req, res, next) => {
           );
           return res.status(200).json({ 
             message: "Auth successful",
-            token: token
+            token: token,
+            user: user[0]._id
           });
         }
         res.status(401).json({

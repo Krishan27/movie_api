@@ -12,15 +12,21 @@
   "dependencies": {
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
+    "bee-queue": "^1.2.3",
     "body-parser": "^1.19.0",
     "config": "^3.3.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-ping": "^1.4.0",
+    "ioredis": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "kue": "^0.11.6",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.10",
+    "node-resque": "^7.0.4",
+    "nodemailer": "^6.4.6",
     "nodemon": "^2.0.3",
+    "redis": "^3.0.2",
     "request": "^2.88.2"
   }
 }
