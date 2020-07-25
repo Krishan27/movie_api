@@ -1,6 +1,7 @@
 # Config
 config.js
 
+.idea/
 # Logs
 logs
 *.log
